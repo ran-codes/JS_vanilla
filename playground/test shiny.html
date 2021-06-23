@@ -1,0 +1,1001 @@
+  <a href="https://www.covid-inequities.info/metrics/" target="_blank">here.</a>
+                        <span style="text-decoration: underline;">
+                          You can hover over the two dots or the black bars for additional information. You can hover over the dots or lines for additional information. You can choose visualizing (1) inequities between neighborhoods, (2) values for neighborhoods at the top vs bottom of the selected indicator, or (3) the distribution of the 
+                          <a href="https://www.covid-inequities.info/indicators/" target="_blank">indicator.</a>
+                        </span>
+                        <div class="row">
+                          <div class="col-sm-12" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_nb_type">Select what to plot:</label>
+                              <select id="ineq_nb_type" class="selectpicker form-control"><option value="Inequities: difference">Inequities: difference</option>
+<option value="Inequities: top vs bottom">Inequities: top vs bottom</option>
+<option value="Indicators">Indicators</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div id="ineq_nb_input_ui" class="shiny-html-output"></div>
+                        <br/>
+                        <div id="ineq_nb_plot_ui" class="shiny-html-output"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Map of Inequities in COVID-19 Outcomes by Neighborhood Factors</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel explores differences in COVID-19 outcomes between top and bottom quartiles (top and bottom 25%) of the 
+                        selected neighborhood indicator. Quartiles are defined based on the distribution of the 
+                        <a href="https://www.covid-inequities.info/indicators/" target="_blank">neighborhood factors</a>
+                         in each city.
+                        For an introduction to the metrics used in this panel click 
+                        <a href="https://www.covid-inequities.info/metrics/" target="_blank">here.</a>
+                        <span style="text-decoration: underline;">You can hover over the hexagons for more information on each city.</span>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <form class="well">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" for="ineq_nb_outcome_map">Select Outcome:</label>
+                                <select id="ineq_nb_outcome_map" class="selectpicker form-control"><option value="Hospitalization">Hospitalization</option>
+<option value="Incidence" selected>Incidence</option>
+<option value="Mortality">Mortality</option>
+<option value="Testing">Testing</option></select>
+                              </div>
+                              <div id="ineq_nb_exposure_map_ui" class="shiny-html-output"></div>
+                              <div class="form-group shiny-input-container">
+                                <div class="pretty p-default">
+                                  <input id="restrict_nb_ineq_map" type="checkbox"/>
+                                  <div class="state p-primary">
+                                    <label>
+                                      <span>
+                                        <span style="font-weight: normal;">Restrict to cities with data updated in the last 30 days</span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              
+          <button
+          id="button"
+          data-toggle="collapse"
+          data-target="#demo2"
+          type="button"
+          class="btn btn-default action-button"
+          style="bottom: 0; margin: 0 auto; display: block">
+          Click to show/hide map explanation</button>
+                            </form>
+                          </div>
+                          <div class="col-sm-8">
+                            <div id="ineq_nb_map" style="width:100%; height:400px; " class="leaflet html-widget html-widget-output"></div>
+                            <div id="demo2" class="collapse">
+                              <div id="ineq_nb_map_explainer" class="shiny-html-output"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane container-fluid" id="shiny-tab-inequities_city">
+                <br/>
+                <div class="container-fluid">
+                  <div class="header_container">
+                    <div class="header_small_title">
+                      <i class="fa fa-city"></i>
+                      <span class="invisibletext">.....</span>
+                      City Level Inequities
+                    </div>
+                  </div>
+                  <div class="col-sm-8 offset-sm-2" align="center">
+                    Although cities are heterogeneous in terms of residents and neighborhoods, 
+        they also have city-level characteristics that may affect health. In this 
+        section we describe inequities across cities using city level data. City level 
+        characteristics that may related to differences in health (and COVID-19 outcomes) 
+        across cities include city poverty rates, income inequality, population density, 
+        race and ethnic composition and city-level segregation. For more details about our Equity Framework see 
+                    <a href="https://www.covid-inequities.info/framework/" target="_blank">here.</a>
+                  </div>
+                  <hr/>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Inequities in COVID-19 Outcomes by City Factors</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel explores differences in COVID-19 outcomes between top and bottom quartiles  (top 25% and bottom 25%) of 
+                        <a href="https://www.covid-inequities.info/indicators/" target="_blank">city level factors.</a>
+                        Quartiles are defined based on the distribution of the factors across all cities with available data. 
+                        For an introduction to the metrics used in this panel click 
+                        <a href="https://www.covid-inequities.info/metrics/" target="_blank">here.</a>
+                        <span style="text-decoration: underline;">You can hover over the two dots or the black bars for additional information. You can also add or remove city level factors on the drop down menu.</span>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-4" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_city_outcome">Select COVID-19 Outcome:</label>
+                              <select id="ineq_city_outcome" class="selectpicker form-control"><option value="Incidence" selected>Incidence</option>
+<option value="Mortality">Mortality</option></select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_city_indicators">Select City Level Indicators:</label>
+                              <select data-actions-box="true" data-live-search="true" data-size="8" id="ineq_city_indicators" class="selectpicker form-control" multiple="multiple"><optgroup label="Demographics">
+<option value="Population">Population</option>
+<option value="Population Density">Population Density</option>
+<option value="% Hispanic" selected>% Hispanic</option>
+<option value="% NH White">% NH White</option>
+<option value="% NH-Black" selected>% NH-Black</option>
+<option value="% NH Asian/PI">% NH Asian/PI</option>
+<option value="% NH Native American">% NH Native American</option>
+<option value="% Foreign Born">% Foreign Born</option>
+</optgroup>
+<optgroup label="Income, Wealth, &amp; Poverty">
+<option value="% Poverty" selected>% Poverty</option>
+<option value="GINI" selected>GINI</option>
+</optgroup>
+<optgroup label="Occupation">
+<option value="% Service Worker">% Service Worker</option>
+<option value="% Production Worker">% Production Worker</option>
+</optgroup>
+<optgroup label="Segregation">
+<option value="Dissimilarity: Hispanic and NH-White" selected>Dissimilarity: Hispanic and NH-White</option>
+<option value="Dissimilarity: NH-Black and NH-White" selected>Dissimilarity: NH-Black and NH-White</option>
+<option value="Isolation: Hispanic" selected>Isolation: Hispanic</option>
+<option value="Isolation: NH-Black" selected>Isolation: NH-Black</option>
+</optgroup>
+<optgroup label="Housing">
+<option value="% Overcrowding">% Overcrowding</option>
+<option value=""></option>
+</optgroup></select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_city_sort">Sort By</label>
+                              <select id="ineq_city_sort" class="selectpicker form-control"><option value="domain" selected>Indicator Domain</option>
+<option value="diff">Rate Difference</option>
+<option value="rr">Rate Ratio</option>
+<option value="top">Value for Top Quartile</option>
+<option value="bottom">Value for Bottom Quartile</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <br/>
+                        <div id="ineq_city_plot_ui" class="shiny-html-output"></div>
+                        <div style="text-align: center">
+                          Footnote: Details on our data source can be found in the
+                          <a id="link_data3" href="#" class="action-button">Data Page.</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane container-fluid" id="shiny-tab-inequities_testing">
+                <br/>
+                <div class="container-fluid">
+                  <div class="header_container">
+                    <div class="header_small_title">
+                      <i class="fa fa-home"></i>
+                      <span class="invisibletext">.....</span>
+                      Testing Inequities Across Cities
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-10 offset-sm-1">In this section we describe inequities in the spatial accessibility to COVID-19 testing by neighborhood characteristics across cities. Testing site data provided by Castlight Health was used to calculate two types of COVID-19 testing metrics: <a href="https://www.covid-inequities.info/blog/2021/04/29/2021-03-11-testing-site-metrics-potential-community-need/">potential demand</a> and <a href="https://www.covid-inequities.info/blog/2021/04/28/2021-04-08-testing-site-metrics-spatial-accessibility/" target = "_blank"> spatial accessibility</a>. Inequities in accessibility to COVID-19 are measured by comparing these metrics between neighborhoods in the top and bottom quartiles of the neighborhood characteristic. For more details about our Equity Indicators see <a href="https://www.covid-inequities.info/indicators/" target="_blank">here.</a></div>
+                  </div>
+                  <hr/>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Map of Inequities in COVID-19 Testing by Neighborhood Factors</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel explores inequities in COVID-19 testing accessibility between top and bottom quartiles (top and bottom 25%) of the selected neighborhood factors in each city. Click the following links for an introduction to the accessibility metrics used in this panel: <a href="https://www.covid-inequities.info/blog/2021/04/29/2021-03-11-testing-site-metrics-potential-community-need/">potential demand</a> and <a href="https://www.covid-inequities.info/blog/2021/04/28/2021-04-08-testing-site-metrics-spatial-accessibility/" target = "_blank"> spatial accessibility</a>. <u> You can hover over the hexagons for more information on each city.</u>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <form class="well">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" for="ineq_nb_testing_metric_map">Definition of Accessibility:</label>
+                                <select id="ineq_nb_testing_metric_map" class="selectpicker form-control"><option value="Potential Community Demand" selected>Potential Community Demand</option>
+<option value="Accessible Testing (15 Min walk)">Accessible Testing (15 Min walk)</option>
+<option value="Testing Site within 100m of Block Group">Testing Site within 100m of Block Group</option></select>
+                              </div>
+                              <div id="ineq_nb_testing_exposure_map_ui" class="shiny-html-output"></div>
+                              
+          <button
+          id="button"
+          data-toggle="collapse"
+          data-target="#demo3"
+          type="button"
+          class="btn btn-default action-button"
+          style="bottom: 0; margin: 0 auto; display: block">
+          Click to show/hide map explanation</button>
+                            </form>
+                          </div>
+                          <div class="col-sm-8">
+                            <div id="ineq_nb_testing_map_title" class="shiny-html-output"></div>
+                            <div id="ineq_nb_testing_map" style="width:100%; height:400px; " class="leaflet html-widget html-widget-output"></div>
+                            <div id="demo3" class="collapse">
+                              <div id="ineq_nb_testing_map_explainer" class="shiny-html-output"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Plot: Inequities in Neighborhood level Testing access across cities</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                            <i class="fa fa-expand"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel explores differences in COVID-19 testing accessibility between top and bottom quartiles (top and bottom 25%) of the selected neighborhood indicator. Quartiles are defined based on the distribution of the <a href="https://www.covid-inequities.info/indicators/" target="_blank">neighborhood factors</a> in each city. Click the following links for an introduction to the accessibility metrics used in this panel: <a href="https://www.covid-inequities.info/blog/2021/04/29/2021-03-11-testing-site-metrics-potential-community-need/">potential demand</a> and <a href="https://www.covid-inequities.info/blog/2021/04/28/2021-04-08-testing-site-metrics-spatial-accessibility/" target = "_blank"> spatial accessibility</a>. <u>You can choose visualizing (1) the % difference (ratio) or the absolute difference in the access measures between top and bottom quantiles of neighborhood indicators, (2) the values of testing accessibility for the top and bottom quantiles of neighborhood indicators. You can hover over the dots or lines for additional information.</u>
+                        <div class="row">
+                          <div class="col-sm-12" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="testing_city_type">Select what to plot:</label>
+                              <select id="testing_city_type" class="selectpicker form-control"><option value="Inequities: difference">Inequities: difference</option>
+<option value="Inequities: top vs bottom">Inequities: top vs bottom</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div id="ineq_testing_input_ui" class="shiny-html-output"></div>
+                        <br/>
+                        <div id="ineq_testing_plot_ui" class="shiny-html-output"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane container-fluid" id="shiny-tab-inequities_vaccine_pop">
+                <br/>
+                <div class="container-fluid">
+                  <div class="header_container">
+                    <div class="header_small_title">
+                      <i class="fa fa-home"></i>
+                      <span class="invisibletext">.....</span>
+                      Vaccination Inequities Across Cities
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-10 offset-sm-1">In this section we describe inequities in COVID-19 vaccination rates and other vaccination outcomes across population subgroups, neighborhoods, and cities. We use similar <a href="https://www.covid-inequities.info/indicators/" target="_blank">indicators</a>  to those used in sections on cases, testing and deaths. For more details about our Equity Framework see <a href="https://www.covid-inequities.info/framework/" target="_blank">here</a>.</div>
+                  </div>
+                  <hr/>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Inequities in COVID-19 Vaccinations by Race/Ethnicity</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        Rate Ratios and Rate Differences are key metrics of inequity. For an introduction to the metrics used in this panel click <a href="https://www.covid-inequities.info/metrics/" target="_blank">here</a>. In this panel we visualize rate ratios and rate differences for various COVID-19 vaccination outcomes comparing pairs of race/ethnici groups.  <u>You can hover over the dots or lines for additional information. You can choose visualizing (1) inequities between racial/ethnic groups, (2) values of the outcome for each racial/ethnic group.</u>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                          <div class="col-sm-12" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_pop_vax_type">Select what to plot:</label>
+                              <select id="ineq_pop_vax_type" class="selectpicker form-control"><option value="Inequities: difference">Inequities: difference</option>
+<option value="Inequities: top vs bottom">Inequities: top vs bottom</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div id="ineq_pop_vax_input_ui" class="shiny-html-output"></div>
+                        <div id="ineq_pop_vax_lollipop_ui" class="shiny-html-output"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">COVID-19 Vaccination coverage by Race/Ethnicity</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        In this panel we visualize rates of COVID-19 Vaccination coverage by each 
+      race/ethnicity separately across all cities available. You can select 
+      which groups to include in this visualization.
+                        <div class="row">
+                          <div class="col-sm-12" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_pop_vax_rates">Select Outcome:</label>
+                              <select id="ineq_pop_vax_rates" class="selectpicker form-control"><option value="% Fully Vaccinated" selected>% Fully Vaccinated</option>
+<option value="% Partially Vaccinated">% Partially Vaccinated</option>
+<option value="% with at least one dose">% with at least one dose</option>
+<option value="Doses per 1000">Doses per 1000</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12" align="center">
+                            <div class="form-group shiny-input-container">
+                              <div class="pretty p-default">
+                                <input id="ineq_pop_vax_rates_restrict" type="checkbox"/>
+                                <div class="state p-primary">
+                                  <label>
+                                    <span>
+                                      <span style="font-weight: normal;">Restrict to cities with data updated in the last 30 days</span>
+                                    </span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-3" align="left">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div id="ineq_pop_vax_rates_groups" class="form-group shiny-input-checkboxgroup shiny-input-container">
+                              <label class="control-label" for="ineq_pop_vax_rates_groups">Select Race/Ethnicity:</label>
+                              <div class="shiny-options-group">
+                                <div style="height:7px;"></div>
+                                <div class="pretty p-smooth p-icon">
+                                  <input type="checkbox" name="ineq_pop_vax_rates_groups" value="NH White" checked="checked"/>
+                                  <div class="state p-primary-o">
+                                    <i class="icon fa fa-check-square-o"></i>
+                                    <label>
+                                      <span>NH White</span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <div style="height:3px;"></div>
+                                <div class="pretty p-smooth p-icon">
+                                  <input type="checkbox" name="ineq_pop_vax_rates_groups" value="NH Black" checked="checked"/>
+                                  <div class="state p-primary-o">
+                                    <i class="icon fa fa-check-square-o"></i>
+                                    <label>
+                                      <span>NH Black</span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <div style="height:3px;"></div>
+                                <div class="pretty p-smooth p-icon">
+                                  <input type="checkbox" name="ineq_pop_vax_rates_groups" value="Hispanic"/>
+                                  <div class="state p-primary-o">
+                                    <i class="icon fa fa-check-square-o"></i>
+                                    <label>
+                                      <span>Hispanic</span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <div style="height:3px;"></div>
+                                <div class="pretty p-smooth p-icon">
+                                  <input type="checkbox" name="ineq_pop_vax_rates_groups" value="NH Asian/PI"/>
+                                  <div class="state p-primary-o">
+                                    <i class="icon fa fa-check-square-o"></i>
+                                    <label>
+                                      <span>NH Asian/PI</span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <div style="height:3px;"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-9">
+                            <div id="ineq_pop_vax_bar_hc_ui" class="shiny-html-output"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Map of Inequities in COVID-19 Vaccine Coverage by Race/Ethnicity</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        Rate Ratios and Rate Differences are key metrics of inequity. For an introduction to the metrics used in this panel click 
+                        <a href="https://www.covid-inequities.info/metrics/" target="_blank">here.</a>
+                        In this panel we visualize inequities in COVID-19 vaccine coverage between combinations of two race/ethnicity groups for each city. 
+                        <span style="text-decoration: underline;">You can hover over the hexagons for more information on each city.</span>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <form class="well">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" for="ineq_pop_vax_map_outcome">Select Outcome:</label>
+                                <select id="ineq_pop_vax_map_outcome" class="selectpicker form-control"><option value="% Fully Vaccinated" selected>% Fully Vaccinated</option>
+<option value="% Partially Vaccinated">% Partially Vaccinated</option>
+<option value="% with at least one dose">% with at least one dose</option>
+<option value="Doses per 1000">Doses per 1000</option></select>
+                              </div>
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" for="ineq_pop_vax_map_group">Race/Ethnicity to compare:</label>
+                                <select id="ineq_pop_vax_map_group" class="selectpicker form-control"><option value="NH Black" selected>NH Black</option>
+<option value="Hispanic">Hispanic</option>
+<option value="NH Asian/PI">NH Asian/PI</option></select>
+                              </div>
+                              <div class="form-group shiny-input-container">
+                                <div class="pretty p-default">
+                                  <input id="ineq_pop_vax_map_restrict" type="checkbox"/>
+                                  <div class="state p-primary">
+                                    <label>
+                                      <span>
+                                        <span style="font-weight: normal;">Restrict to cities with data updated in the last 30 days</span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              
+          <button
+          id="button"
+          data-toggle="collapse"
+          data-target="#demo4"
+          type="button"
+          class="btn btn-default action-button"
+          style="bottom: 0; margin: 0 auto; display: block">
+          Click to show/hide map explanation</button>
+                            </form>
+                          </div>
+                          <div class="col-sm-8">
+                            <div id="ineq_pop_vax_map" style="width:100%; height:400px; " class="leaflet html-widget html-widget-output"></div>
+                            <div id="demo4" class="collapse">
+                              <div id="ineq_pop_vax_map_explainer" class="shiny-html-output"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Race/Ethnicity Data Quality in COVID-19 Vaccination Coverage by City</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel displays what proportion of the reported COVID-19 vaccinations in a given city is missing Race/Ethnicity information. 
+                        <span style="text-decoration: underline;">You can sort cities alphabetically or by ranking % of missing data by Race/Ethnicity.</span>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-6" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_pop_vax_missing">Select Outcome:</label>
+                              <select id="ineq_pop_vax_missing" class="selectpicker form-control"><option value="% Fully Vaccinated" selected>% Fully Vaccinated</option>
+<option value="% Partially Vaccinated">% Partially Vaccinated</option>
+<option value="Total Doses">Total Doses</option>
+<option value="% with at least one dose">% with at least one dose</option></select>
+                            </div>
+                          </div>
+                          <div class="col-sm-6" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_pop_vax_missing_sort">Sort By:</label>
+                              <select id="ineq_pop_vax_missing_sort" class="selectpicker form-control"><option value="city">Alphabetically</option>
+<option value="highest">Highest to Lowest</option>
+<option value="lowest" selected>Lowest to Highest</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6" align="center">
+                            <div class="form-group shiny-input-container">
+                              <div class="pretty p-default">
+                                <input id="ineq_pop_vax_missing_restrict" type="checkbox"/>
+                                <div class="state p-primary">
+                                  <label>
+                                    <span>
+                                      <span style="font-weight: normal;">Restrict to cities with data updated in the last 30 days</span>
+                                    </span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div id="ineq_pop_vax_missing_hc_ui" class="shiny-html-output"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane container-fluid" id="shiny-tab-inequities_vaccine_nb">
+                <br/>
+                <div class="container-fluid">
+                  <div class="header_container">
+                    <div class="header_small_title">
+                      <i class="fa fa-home"></i>
+                      <span class="invisibletext">.....</span>
+                      Vaccination Inequities Across Cities
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-10 offset-sm-1">In this section we describe inequities in COVID-19 vaccination rates and other vaccination outcomes across population subgroups, neighborhoods, and cities. We use similar <a href="https://www.covid-inequities.info/indicators/" target="_blank">indicators</a>  to those used in sections on cases, testing and deaths. For more details about our Equity Framework see <a href="https://www.covid-inequities.info/framework/" target="_blank">here</a>.</div>
+                  </div>
+                  <hr/>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Inequities in COVID-19 Vaccinations by Neighborhood Factors</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel explores differences in COVID-19 vaccination outcomes between the top and bottom quartiles (top and bottom 25%) of the selected neighborhood indicator. Quartiles are defined based on the distribution of the <a href="https://www.covid-inequities.info/indicators/" target="_blank">neighborhood factors</a> in each city. For an introduction to the metrics used in this panel click <a href="https://www.covid-inequities.info/metrics/" target="_blank">here</a>. <u>You can hover over the dots or lines for additional information. You can choose visualizing (1) inequities between neighborhoods, (2) values for neighborhoods at the top vs bottom of the selected indicator, or (3) the distribution of the neighborhood <a href="https://www.covid-inequities.info/indicators/" target="_blank">indicator</a>.</u>
+                        <div class="row">
+                          <div class="col-sm-12" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_vax_nb_type">Select what to plot:</label>
+                              <select id="ineq_vax_nb_type" class="selectpicker form-control"><option value="Inequities: difference">Inequities: difference</option>
+<option value="Inequities: top vs bottom">Inequities: top vs bottom</option>
+<option value="Indicators">Indicators</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <hr/>
+                        <div id="ineq_vax_nb_input_ui" class="shiny-html-output"></div>
+                        <br/>
+                        <div id="ineq_vax_nb_plot_ui" class="shiny-html-output"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Map of Inequities in COVID-19 Vaccine Coverage by Neighborhood Factors</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel explores differences in COVID-19 vaccine coverage between top and bottom quartiles (top and bottom 25%) of the 
+                        selected neighborhood indicator. Quartiles are defined based on the distribution of the 
+                        <a href="https://www.covid-inequities.info/indicators/" target="_blank">neighborhood factors</a>
+                         in each city.
+                        For an introduction to the metrics used in this panel click 
+                        <a href="https://www.covid-inequities.info/metrics/" target="_blank">here.</a>
+                        <span style="text-decoration: underline;">You can hover over the hexagons for more information on each city.</span>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <form class="well">
+                              <div class="form-group shiny-input-container">
+                                <label class="control-label" for="ineq_nb_vax_map_outcome">Select Outcome:</label>
+                                <select id="ineq_nb_vax_map_outcome" class="selectpicker form-control"><option value="% Fully Vaccinated" selected>% Fully Vaccinated</option>
+<option value="% Partially Vaccinated">% Partially Vaccinated</option>
+<option value="% with at least one dose">% with at least one dose</option>
+<option value="Doses per 1000">Doses per 1000</option></select>
+                              </div>
+                              <div id="ineq_nb_vax_exposure_map_ui" class="shiny-html-output"></div>
+                              <div class="form-group shiny-input-container">
+                                <div class="pretty p-default">
+                                  <input id="restrict_nb_vax_ineq_map" type="checkbox"/>
+                                  <div class="state p-primary">
+                                    <label>
+                                      <span>
+                                        <span style="font-weight: normal;">Restrict to cities with data updated in the last 30 days</span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              
+          <button
+          id="button"
+          data-toggle="collapse"
+          data-target="#demo5"
+          type="button"
+          class="btn btn-default action-button"
+          style="bottom: 0; margin: 0 auto; display: block">
+          Click to show/hide map explanation</button>
+                            </form>
+                          </div>
+                          <div class="col-sm-8">
+                            <div id="ineq_nb_vax_map" style="width:100%; height:400px; " class="leaflet html-widget html-widget-output"></div>
+                            <div id="demo5" class="collapse">
+                              <div id="ineq_nb_vax_map_explainer" class="shiny-html-output"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane container-fluid" id="shiny-tab-inequities_vaccine_city">
+                <br/>
+                <div class="container-fluid">
+                  <div class="header_container">
+                    <div class="header_small_title">
+                      <i class="fa fa-home"></i>
+                      <span class="invisibletext">.....</span>
+                      Vaccination Inequities Across Cities
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-10 offset-sm-1">In this section we describe inequities in COVID-19 vaccination rates and other vaccination outcomes across population subgroups, neighborhoods, and cities. We use similar <a href="https://www.covid-inequities.info/indicators/" target="_blank">indicators</a>  to those used in sections on cases, testing and deaths. For more details about our Equity Framework see <a href="https://www.covid-inequities.info/framework/" target="_blank">here</a>.</div>
+                  </div>
+                  <hr/>
+                  <div class="col-sm-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <div class="boxheader">Inequities in COVID-19 Vaccinations by City Factors</div>
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        This panel explores differences in COVID-19 vaccination outcomes between top and bottom quartiles (top 25% and bottom 25%) of <a href="https://www.covid-inequities.info/indicators/" target="_blank">city level factors</a>. Quartiles are defined based on the distribution of the factors across all cities with available data. For an introduction to the metrics used in this panel click <a href="https://www.covid-inequities.info/metrics/" target="_blank">here</a>. <u>You can hover over the dots or lines for additional information. You can also add or remove city level factors using  the drop down menu.</u>
+                        <hr/>
+                        <div class="row">
+                          <div class="col-sm-4" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_city_vax_outcome">Select COVID-19 Outcome:</label>
+                              <select id="ineq_city_vax_outcome" class="selectpicker form-control"><option value="% Fully Vaccinated" selected>% Fully Vaccinated</option>
+<option value="% Hesitant">% Hesitant</option>
+<option value="% Strongly Hesitant">% Strongly Hesitant</option></select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_city_vax_indicators">Select City Level Indicators:</label>
+                              <select data-actions-box="true" data-live-search="true" data-size="8" id="ineq_city_vax_indicators" class="selectpicker form-control" multiple="multiple"><optgroup label="Demographics">
+<option value="Population">Population</option>
+<option value="Population Density">Population Density</option>
+<option value="% Hispanic" selected>% Hispanic</option>
+<option value="% NH White">% NH White</option>
+<option value="% NH-Black" selected>% NH-Black</option>
+<option value="% NH Asian/PI">% NH Asian/PI</option>
+<option value="% NH Native American">% NH Native American</option>
+<option value="% Foreign Born">% Foreign Born</option>
+</optgroup>
+<optgroup label="Income, Wealth, &amp; Poverty">
+<option value="% Poverty" selected>% Poverty</option>
+<option value="GINI" selected>GINI</option>
+</optgroup>
+<optgroup label="Occupation">
+<option value="% Service Worker">% Service Worker</option>
+<option value="% Production Worker">% Production Worker</option>
+</optgroup>
+<optgroup label="Segregation">
+<option value="Dissimilarity: Hispanic and NH-White" selected>Dissimilarity: Hispanic and NH-White</option>
+<option value="Dissimilarity: NH-Black and NH-White" selected>Dissimilarity: NH-Black and NH-White</option>
+<option value="Isolation: Hispanic" selected>Isolation: Hispanic</option>
+<option value="Isolation: NH-Black" selected>Isolation: NH-Black</option>
+</optgroup>
+<optgroup label="Housing">
+<option value="% Overcrowding">% Overcrowding</option>
+<option value=""></option>
+</optgroup></select>
+                            </div>
+                          </div>
+                          <div class="col-sm-4" align="center">
+                            <div class="form-group shiny-input-container">
+                              <label class="control-label" for="ineq_city_vax_sort">Sort By</label>
+                              <select id="ineq_city_vax_sort" class="selectpicker form-control"><option value="domain" selected>Indicator Domain</option>
+<option value="diff">Rate Difference</option>
+<option value="rr">Rate Ratio</option>
+<option value="top">Value for Top Quartile</option>
+<option value="bottom">Value for Bottom Quartile</option></select>
+                            </div>
+                          </div>
+                        </div>
+                        <br/>
+                        <div id="ineq_city_vax_plot_ui" class="shiny-html-output"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane container-fluid" id="shiny-tab-data">
+                <br/>
+                <div class="container-fluid">
+                  <div class="header_container">
+                    <div class="header_small_title">Data</div>
+                  </div>
+                  One of the main goals of this data platform is bring together COVID-19 Equity indicators across the 30 BCHC cities. We are using a combination of data sources, from data provided directly from health departments to publicly available data. Thank you to all of those health department employees who have help contribute to this effort. This section will give an overview of our data sources and track progress of our data collection efforts. In some cases (top table below) we use data from the cities themselves; in other cases (bottom table below) we use county proxies.  As city-specific data becomes more available, it may replace country proxies.
+                  <hr/>
+                  <h3>Data Sources for Cities</h3>
+                  Consistent with our equity framework, we collected data at three levels: 1)
+Individual-level (Race/ethnicity), 2) Neighborhood level (zip code tabulation
+area, or ZCTA), and 3) City-level. A &#10004;&#65039; indicates that we have
+some data at this data level for this city. A &#10006; is used to indicate cases
+where a certain data type was not available for the given city. Note that for
+Long Beach, available for the given city. Note that for Long Beach, &#10006;<sup
+  >+</sup
+>
+indicates data from Long Beach (city) is not available, and that Long Beach
+(city) is included in Los Angeles (County) data.
+<br /><br />
+These data are obtained from many sources, including various city, county, and
+state health departments, the CDC, as well as Johns Hopkins University. You can
+click on each row for these details including:
+
+<ul style="font-size: 14px">
+  <li>
+    <b>Data Level:</b> 1) Individual-level (Race/ethnicity), 2) Neighborhood
+    level (ZCTA), or 3) City-level.
+  </li>
+  <li>
+    <b>Data Type:</b> Specific data type including COVID-19 outcomes (testing,
+    incidence, mortality, hospitalizations) or vaccination outcomes (uptake and
+    hesitancy).
+  </li>
+  <li>
+    <b>Age-adjusted:</b> Indicates if data is crude or age-adjusted (using the
+    2000 US Standard Population).
+  </li>
+  <li>
+    <b>Source:</b> A hyperlink to where the data was collected from. These
+    sources include the following
+    <ul>
+      <li><b>LHD:</b> Local health departments.</li>
+      <li><b>State:</b> State health departments.</li>
+      <li>
+        <b>JHU:</b> Johns Hopkins University data provided for the county or
+        counties used as a proxy for the city.
+      </li>
+      <li>
+        <b>CDC:</b> A hyperlink to where the data was collected from. Data
+        corresponds to the county or counties used as a proxy for the city.
+        These sources include the following
+        <ul>
+          <li>
+            Outcome Data comes from the Centers for Disease Control and
+            Prevention, COVID-19 Response. COVID-19 Case Surveillance Data
+            Access, Summary, and Limitations (version date: 2021-05-22).
+          </li>
+          <li>Vaccine data comes from the CDC COVID Data Tracker.</li>
+          <li>
+            The CDC does not take responsibility for the scientific validity or
+            accuracy of methodology, results, statistical analyses, or
+            conclusions presented.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Date of Access:</b> Date that the county/city data source was accessed.
+    For example, a value of 04/01/21 indicates that the data presented in this
+    row consists of data from the start of the epidemic to 04/01/21. Note- there
+    are often reporting lags, so this value may lag by a number of days or weeks
+    depending on the county/city data source.
+  </li>
+  <li>
+    <b>Geographic level:</b> This column indicates whether the data collected
+    was at the county or city level. Note, all consolidated city-county
+    (Baltimore, New York City, Philadelphia, San Francisco, Washington, Denver)
+    have been labeled as city.
+  </li>
+</ul>
+                  <div id="data_source_reactable_nested" class="reactable html-widget html-widget-output" style="width:auto; height:auto; " data-reactable-output="data_source_reactable_nested"></div>
+                  Footnote: Many visualizations used in this dashboard include city names either in the axis or tooltips. A city name without an asterisk (i.e. Philadelphia) indicates that the source of data plotted in that visualization was categorized as <b>City</b>. A city name with a single asterisks (i.e. Los Angeles*) indicates that the source of data plotted in that visualization was categorized as <b>County</b> or <b>CDC</b>. A city name with a two asterisks (i.e. Indianapolis**) indicates that the source of data plotted in that visualization was categorized as <b>JHU</b>.
+                  <hr/>
+                  <h3>County Proxies</h3>
+                   One of the aims of this project is to compare COVID-19 outcomes 
+      across BCHC cities; 
+      however, city-level data is not always available. 
+      Therefore, it is necessary to use county-level data as a 
+      proxy for some cities. Cities for which we use county data, 
+      as indicated by 'County' or 'JHU' above, are linked to their 
+      respective county proxies in the table below.
+                  
+                  <br/>
+                  <br/>
+                  <div id="data_source_table_counties" class="shiny-html-output"></div>
+                  <hr/>
+                  <h3>Population, Demographic, and Socioeconomic Data</h3>
+                  
+         <ul>
+    <li>
+        <a href="https://www.census.gov/programs-surveys/acs" target = "_blank">American Community Survey (ACS)</a> 
+        estimates at the city and neighborhood level geographies were used to construct indicators used to measure inequities.
+    </li>
+    <li>
+        <a href="https://www.atsdr.cdc.gov/placeandhealth/svi/index.html" target = "_blank">CDC Social Vulnerability Index</a> 
+        was used as a key summary metric of vulnerability.
+    </li>
+    <li>
+        <a href="https://www.hsph.harvard.edu/thegeocodingproject/covid-19-resources/" target = "_blank">Public Health Disparities Geocoding Project</a> 
+        provided definitions and code to to extract Index of Concentration at the Extremes metrics from the US Census American Community Survey. 
+    </li>
+  </ul>  
+  
+         
+                  <hr/>
+                  <h3>Testing Site Data</h3>
+                  Data on testing site location and characteristics comes from <a href="https://www.castlighthealth.com/" target = "_blank">Castlight Health Inc</a> (see 
+<a id="link_about3" href="#" class="action-button">About tab</a>
+for more information). Last updated: 05/13/21.
+                  <hr/>
+                  <h3>Downloadable Data</h3>
+                  Data compiled from publicly available data sources can be downloaded in a machine readable format   <a href="https://github.com/Drexel-UHC/covid_inequities_project" target = "_blank">here</a>.  To cite our dashboard, we suggest the following citation:
+<br> 
+<br>
+<div style="padding-left: 3%; padding-right: 10%;">
+Diez Roux, A., Kolker, J., Barber, S., Bilal, U., Mullachery, P., Schnake-Mahl, A., McCulley, E., Vaidya, V., Ran, L., Rollins, H., Furukawa, A., Koh, C., Sharaf, A., Dureja, K. (2021). <i>COVID-19 Health Inequities In Cities Dashboard. Drexel University: Urban Health Collaborative.</i> http://www.covid-inequities.info/.
+</div>
+
+                  <br/>
+                  <br/>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane container-fluid" id="shiny-tab-about">
+                <br/>
+                <div class="container-fluid">
+                  <div class="header_container">
+                    <div class="header_small_title">About</div>
+                  </div>
+                  This dashboard was developed and is maintained by the Drexel Urban Health 
+    Collaborative in partnership with the Big Cities Health Coalition, with 
+    support from the Robert Wood Johnson Foundation and the De Beaumont Foundation.
+    Any issues or bugs can be reported at our 
+                  <a href="https://github.com/Drexel-UHC/covid_inequities_project" target="_blank">GitHub Repository.</a>
+                  <hr/>
+                  <h3>The Drexel Urban Health Collaborative:</h3>
+                  The mission of the 
+                  <a href="https://drexel.edu/uhc/" target="_blank">Drexel Urban Health Collaborative</a>
+                   at the Dornsife School of  Public Health is to improve health in cities
+    by increasing scientific knowledge 
+    and public awareness of urban health challenges and opportunities, and by identifying 
+    and promoting actions and policies that improve population health and reduce health 
+    inequities. Through three areas of emphasis, research and data, training, and 
+    community and policy engagement, the UHC works to advance knowledge, build capacity, 
+    and translate knowledge into community and policy actions to improve urban health in 
+    Philadelphia and in cities all over the world.
+                  <br/>
+                  <br/>
+                  <h3>The Big Cities Health Coalition:</h3>
+                  The 
+                  <a href="http://www.bigcitieshealth.org" target="_blank">Big Cities Health Coalition (BCHC)</a>
+                   is a forum for the leaders of America's largest 
+    metropolitan health departments to exchange strategies and jointly address issues to 
+    promote and protect the health and safety of their residents. Collectively, BCHC member 
+    jurisdictions directly impact nearly 62 million people, or one in five Americans.
+                  <br/>
+                  <br/>
+                  <h3>The Robert Wood Johnson Foundation:</h3>
+                  The Robert Wood Johnson Foundation (RWJF), located in Princeton, N.J., is the largest 
+    philanthropy in America dedicated solely to health. Since 1972, we have been providing 
+    funding, assistance, and research for projects and programs to help people, their 
+    families, and their communities be as healthy as possible. RWJF is committed to working
+    alongside others to build a 
+                  <a href="https://www.rwjf.org/content/rwjf/en/how-we-work/building-a-culture-of-health.html" target="_blank"> Culture of Health</a>
+                   that provides everyone in America a fair
+    and just opportunity for health and well-being.
+                  <br/>
+                  <br/>
+                  <h3>De Beaumont Foundation: </h3>
+                  The 
+                  <a href="www.debeaumont.org" target="_blank">de Beaumont Foundation</a>
+                   advances policy, builds partnerships, and strengthens public 
+    health to create communities where people can achieve their best possible health. 
+    The Foundation's programs and investments strengthen the public health system, facilitate 
+    collaboration, and provide practical tools to improve the health of all Americans.
+                  <br/>
+                  <br/>
+                  <h3>Castlight Health: </h3>
+                  As a leader in healthcare navigation, <a href="https://www.castlighthealth.com/" target = "_blank">Castlight Health</a> provides a world-class digital platform with a team of clinical and benefits experts to help members easily connect and engage with the right programs and care, at the right time. Castlight partners with Fortune 500 companies and health plans to transform employee and member benefits into one comprehensive health and wellbeing experience to deliver better health outcomes and maximize returns on healthcare investments.
+<br><br>
+We use Castlight data on the location and characteristics of COVID-19 testing locations to assess inequities in accessibility to testing sites in BCHC cities.  
+                  <br/>
+                  <br/>
+                  <h3>Contributors</h3>
+                  
+        <b>Ana Diez Roux, MD MPH PhD,</b> Principal Investigator<br/>
+        <b>Jennifer Kolker, MPH,</b> Co-Principal Investigator<br/>
+        <b>Usama Bilal, MD MPH PhD,</b> Co-Principal Investigator<br/>
+        <b>Sharrelle Barber, ScD MPH,</b> Co-Investigator<br/>
+        <b>Pricila Mullachery, PhD MPH,</b> Post-doctoral fellow<br/>
+        <b>Alina Schnake-Mahl, ScD MPH,</b> Post-doctoral fellow<br/>
+        <b>Edwin McCulley, MS,</b> Research Coordinator (contact point: <a href = 'mailto: emm387@drexel.edu'>emm387@drexel.edu</a>)<br/>
+        <b>Vaishnavi Vaidya, MPH,</b> Project Manager<br/>
+        <b>Allison Gibson, MPH, MCP,</b> Project Coordinator<br />        
+        <b>Ran Li, MS,</b> Data Analyst, Dashboard & Web Development lead<br/>
+        <b>Heather Rollins, MS,</b> Data Analyst, Data Management & Analysis lead<br/>
+        <b>Alyssa Furukawa,</b> Graduate Research Assistant for data team<br/>
+        <b>Celina Koh,</b> Graduate Research Assistant for data team<br/>
+        <b>Asma Sharaf,</b> Graduate Research Assistant for data team<br/>
+        <b>Kristina Dureja,</b> Graduate Research Assistant for data team<br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <aside class="control-sidebar control-sidebar-dark" data-show="false" data-slide="true">
+        <div class="p-3" id="controlbarTitle">
+          <h5></h5>
+        </div>
+      </aside>
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline"></div>
+        <strong></strong>
+        <a href="https://www.bigcitieshealth.org/" target="_blank">
+          <img src="BCHC_logo_claire.jpg" height="140px"/>
+        </a>
+        <a href="https://drexel.edu/uhc/" target="_blank">
+          <img src="UHC Logo.png" height="100px"/>
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
