@@ -25,7 +25,7 @@ myDiv.appendChild(myList);
 const myPic = document.createElement('img');
 
 // set the source to an image
-myPic.src = 'https://picsum.photos/50';
+myPic.src = 'https://picsum.photos/500';
 // set the width to 250
 myPic.width = 250;
 // add a class of cute
@@ -58,9 +58,9 @@ myParagraphs.firstElementChild.remove();
 function generatePlayerCard(name, age, height) {
         const AGEINDOGYEARS = Math.floor(age / 7);
         const myHTML = `
-  <div class="playerCard" id = ${name}>
-  <div class = "close-btn ${name}">X</div>
-   <h2>${name} — ${age} </h2> 
+        <div class="playerCard" id = ${name}>
+        <div class = "close-btn ${name}">X</div>
+        <h2>${name} — ${age} </h2> 
    <p>They are ${height} and {age} years old. In Dog years this person would be ${AGEINDOGYEARS}. That would be a tall dog!</p>
  </div>`;
         const myFragment = document.createRange().createContextualFragment(myHTML);
