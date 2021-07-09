@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>The DOM</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>SVG Alone</h1>
+      <div class="before-rl"></div>
+
+      <hr />
+      <h1>Browser Window</h1>
+      <div class="browser-window">
+        <img src="https://picsum.photos/200" alt="Browser Window" />
+      </div>
+    </div>
+
+    <style>
+      .before-rl {
+        width: 100%;
+        height: 20px;
+        background-image: url('https://raw.githubusercontent.com/rl627/ranli/main/static/media/browser-svg.svg');
+      }
+
+      .browser-window {
+        background: #ececec;
+        position: relative;
+        display: inline-block;
+        padding: 20px 0 0;
+        border: 1px solid #ececec;
+        border-radius: 5px;
+      }
+
+      .browser-window:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 35px;
+        height: 72px;
+
+        top: 0px;
+        left: 0px;
+        background-image: url('https://raw.githubusercontent.com/rl627/ranli/main/static/media/browser-svg.svg');
+      }
+    </style>
+  </body>
+</html>
