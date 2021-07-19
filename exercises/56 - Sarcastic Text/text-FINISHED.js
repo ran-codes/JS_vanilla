@@ -9,45 +9,45 @@ const funkyLetters = {
 /* eslint-enable */
 
 const filters = {
-  sarcastic(letter, index) {
-    // if it is odd, it will return 1, and that is truthy, so this if statement will trip
-    if (index % 2) {
-      return letter.toUpperCase();
-    }
-    // if it is even, it will return zero and we will lowercase it
-    return letter.toLowerCase();
-  },
-  funky(letter) {
-    // first check if there is a funky letter for this case
-    let funkyLetter = funkyLetters[letter];
-    if (funkyLetter) return funkyLetter;
-    // if there is not, check if there is a lowercase version
-    funkyLetter = funkyLetters[letter.toLowerCase()];
-    if (funkyLetter) return funkyLetter;
-    // if there is nothing, return the regular letter
-    return letter;
-  },
-  unable(letter) {
-    const random = Math.floor(Math.random() * 3);
-    if (letter === ' ' && random === 2) {
-      return '...';
-    }
-    return letter;
-  },
+        sarcastic(letter, index) {
+                // if it is odd, it will return 1, and that is truthy, so this if statement will trip
+                if (index % 2) {
+                        return letter.toUpperCase();
+                }
+                // if it is even, it will return zero and we will lowercase it
+                return letter.toLowerCase();
+        },
+        funky(letter) {
+                // first check if there is a funky letter for this case
+                let funkyLetter = funkyLetters[letter];
+                if (funkyLetter) return funkyLetter;
+                // if there is not, check if there is a lowercase version
+                funkyLetter = funkyLetters[letter.toLowerCase()];
+                if (funkyLetter) return funkyLetter;
+                // if there is nothing, return the regular letter
+                return letter;
+        },
+        unable(letter) {
+                const random = Math.floor(Math.random() * 3);
+                if (letter === ' ' && random === 2) {
+                        return '...';
+                }
+                return letter;
+        },
 };
 
 function transformText(text) {
-  // const filter = document.querySelector('[name="filter"]:checked').value;
-  const filter = filterInputs.find(input => input.checked).value;
-  // take the text, and loop over each letter.
-  const mod = Array.from(text).map(filters[filter]);
-  result.textContent = mod.join('');
+        // const filter = document.querySelector('[name="filter"]:checked').value;
+        const filter = filterInputs.find((input) => input.checked).value;
+        // take the text, and loop over each letter.
+        const mod = Array.from(text).map(filters[filter]);
+        result.textContent = mod.join('');
 }
 
-textarea.addEventListener('input', e => transformText(e.target.value));
+textarea.addEventListener('input', (e) => transformText(e.target.value));
 
-filterInputs.forEach(input =>
-  input.addEventListener('input', () => {
-    transformText(textarea.value);
-  })
+filterInputs.forEach((input) =>
+        input.addEventListener('input', () => {
+                transformText(textarea.value);
+        })
 );

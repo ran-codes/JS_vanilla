@@ -587,25 +587,16 @@
       ];
       const charToCheck = numToCheck.concat(lettersToCheck);
 
-      // Lets first check count for a single letter 'A'
-      countA = function (tally, currentChar) {
-        return currentChar === 'A' ? tally + 1 : tally;
-      };
-
-      // Create higher order function to make counter function
       makeCounter = function (letterToCheckTmp) {
         return function (tally, currentChar) {
           return currentChar === letterToCheckTmp ? tally + 1 : tally;
         };
       };
-      // For each character (map) we want to count text (reduce) for the specific char
+
       const result = charToCheck.map((element) =>
-        // console.log(element);
-        // console.log(makeCounter(element));
         textArray.reduce(makeCounter(element), 0)
       );
 
-      // Bind results
       const resultObj = {};
       charToCheck.forEach((charToCheck, i) => {
         resultObj[charToCheck] = result[i];
